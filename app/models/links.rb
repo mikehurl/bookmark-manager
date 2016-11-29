@@ -2,7 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 
-class Link
+class Links
 
   include DataMapper::Resource
 
