@@ -1,5 +1,4 @@
 require 'spec_helper'
-require './app/models/link.rb'
 
 feature 'Tagging links', :type => :feature do
 

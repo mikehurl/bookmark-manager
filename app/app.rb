@@ -9,7 +9,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/links' do
-    @links = Link.all
+    p @links = Link.all
     erb :links
   end
 
@@ -24,6 +24,12 @@ class BookmarkManager < Sinatra::Base
     link.save
     link.tags.first
     redirect to('/links')
+  end
+
+  get '/tags/bubbles' do
+    # @links = Link.all
+    @links = Link.all.select {|link| link.tags.name == params[:tags]}
+    erb(:filtered_tags)
   end
 
   # start the server if ruby file executed directly
