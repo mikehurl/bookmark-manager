@@ -12,4 +12,15 @@ feature 'Tagging links', :type => :feature do
     link = Link.first
     expect(link.tags.map(&:name)).to include('dog')
   end
+
+  scenario 'I can add multiple tags to a link' do
+    visit('/links/new')
+    fill_in('title', :with => 'Bubble Bobble')
+    fill_in('url', :with => 'http://www.bubble-bobble.com')
+    fill_in('tags', :with => 'twice once')
+    click_button('Create Link')
+    link = Link.first
+    expect(link.tags.map(&:name)).to include('twice', 'once')
+  end
+
 end

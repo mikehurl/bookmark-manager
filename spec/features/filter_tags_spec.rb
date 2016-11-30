@@ -17,4 +17,5 @@ feature 'Filtering links', :type => :feature do
       expect(page).to have_content('Bubble Bobble')
     end
   end
+
 end
