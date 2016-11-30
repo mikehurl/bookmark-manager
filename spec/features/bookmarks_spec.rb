@@ -3,7 +3,7 @@ require 'spec_helper.rb'
 feature "Homepage", :feature => :type do
   scenario "see list of links on homepage" do
 
-    Links.create(url: 'http://www.makersacademy.com', title: "Makers Academy")
+    Link.create(url: 'http://www.makersacademy.com', title: "Makers Academy")
 
     visit '/links'
 

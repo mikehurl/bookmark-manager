@@ -6,7 +6,7 @@ require './app/data_mapper_setup.rb'
 class BookmarkManager < Sinatra::Base
 
   get '/links' do
-    @links = Links.all
+    @link = Link.all
     erb :'links/links'
   end
 
@@ -15,7 +15,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    Links.create(url: params[:Link], title: params[:Title])
+    Link.create(url: params[:Link], title: params[:Title], tag: params[:Tag])
     redirect '/links'
   end
 
