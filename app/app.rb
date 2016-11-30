@@ -6,11 +6,11 @@ class BookmarkManager < Sinatra::Base
 
   get '/links' do
     @links = Links.all
-    erb :links
+    erb :'links/links'
   end
 
   get '/links/new' do
-    erb :form
+    erb :'links/new'
   end
 
   post '/links' do
