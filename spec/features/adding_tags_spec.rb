@@ -7,7 +7,7 @@ feature 'Tagging links', :type => :feature do
     click_button('Add Link')
     fill_in('title', :with => 'Dog gif page')
     fill_in('url', :with => "http://www.doggifpage.com/")
-    fill_in('tag_name', :with => "dog")
+    fill_in('tags', :with => "dog")
     click_button('Create Link')
     link = Link.first
     expect(link.tags.map(&:name)).to include('dog')
