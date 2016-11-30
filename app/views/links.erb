@@ -11,9 +11,13 @@
     <li>
       Title: <%= link.title %>
       URL: <%= link.url %>
-  </li>
+    </li>
   <% end %>
 </ul>
+
+<form action="/links/new" method="get">
+<input type="submit" value="Add Link">
+</form>
 
 </body>
 
