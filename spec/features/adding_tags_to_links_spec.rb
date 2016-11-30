@@ -10,9 +10,9 @@ feature 'Adding tags to links' do
     click_button("Submit")
 
 
-    # link = Link.first
-    # expect(link.tags.map(&:name)).to include('coding')
-    expect(page).to have_text('coding')
+    link = Link.first
+    require 'pry'; binding.pry
+    expect(link.tags.map(&:name)).to include('coding')
   end
 
 end
