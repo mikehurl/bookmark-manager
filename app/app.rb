@@ -6,6 +6,7 @@ require './app/data_mapper_setup.rb'
 
 class BookmarkManager < Sinatra::Base
 
+
   get '/links' do
     @link = Link.all
     erb :'links/links'
