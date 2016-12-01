@@ -11,7 +11,6 @@ feature 'Adding tags to links' do
 
 
     link = Link.first
-    require 'pry'; binding.pry
     expect(link.tags.map(&:name)).to include('coding')
   end
 
