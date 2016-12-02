@@ -2,10 +2,19 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require './app/models/link'
 require './app/models/tag'
+require './app/models/user'
 require './app/data_mapper_setup.rb'
 
 class BookmarkManager < Sinatra::Base
 
+  get '/' do
+    erb :'links/index'
+  end
+
+  post '/sign_up_complete' do
+    @user = User.create(email: params[:email], password: params[:password])
+    redirect to('/links')
+  end
 
   get '/links' do
     @links = Link.all
