@@ -1,8 +1,8 @@
 ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
-require './app/models/link'
-require './app/models/tag'
-require './app/models/user'
+# require './app/models/link'
+# require './app/models/tag'
+# require './app/models/user'
 require './app/data_mapper_setup.rb'
 
 class BookmarkManager < Sinatra::Base
@@ -21,9 +21,13 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/sign_up_complete' do
-    user = User.create(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/links')
+    if params[:password] == params[:password_confirmation]
+      user = User.create(email: params[:email], password: params[:password])
+      session[:user_id] = user.id
+      redirect to('/links')
+    else
+      redirect to('/')
+    end
   end
 
   get '/links' do
